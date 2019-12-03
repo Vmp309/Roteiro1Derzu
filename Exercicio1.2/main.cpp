@@ -7,6 +7,8 @@ int main() {
 
 	bool sair = false;
 	int opcao;
+	int dia, mes, ano;
+	bool flag;
 
 	while (sair == false)
 	{
@@ -21,15 +23,18 @@ int main() {
 		else {
 
 			cout << "Digite o dia:" << endl;
-			cin >> data1->dia;
+			cin >> dia;
 			cout << "Digite o mes:" << endl;
-			cin >> data1->mes;
+			cin >> mes;
 			cout << "Digite o ano:" << endl;
-			cin >> data1->ano;
+			cin >> ano;
 
-			data1->dataValida(data1->dia, data1->mes, data1->ano);
+			data1->setData(dia, mes, ano);
 
-			data1->avancarDia(data1->dia, data1->mes, data1->ano);
+			flag = data1->dataValida(data1->getDia(), data1->getMes(), data1->getAno());
+
+			if (flag == true)
+			data1->avancarDia(data1->getDia(), data1->getMes(), data1->getAno());
 
 			delete data1;
 		}
