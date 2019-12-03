@@ -1,32 +1,56 @@
-﻿#include "Data.h"
+#include "Data.h"
 #include <iostream>
 
+void Data::setData(int dia_para, int mes_para, int ano_para) {
+	dia = dia_para;
+	mes = mes_para;
+	ano = ano_para;
+}
+
+int Data::getDia() {
+	return dia;
+}
+
+int Data::getMes() {
+	return mes;
+}
+
+int Data::getAno() {
+	return ano;
+}
+
 // Definindo as funções da classe Data
-void Data::dataValida(int dia, int mes, int ano) {
+bool Data::dataValida(int dia, int mes, int ano) {
 
 	if (mes == 2) {
 		if (dia >= 29) { // Apenas fevereiro
 			std::cout << "Data invalida " << std::endl;
+			return false;
 		}
 		else {
 			std::cout << "Data valida " << std::endl;
+			return true;
 		}
 	}
 
 	else if (mes != 4 && mes != 6 && mes != 9 && mes != 11) { // Meses que possuem 31 dias
 		if (dia > 31) {
 			std::cout << "Data invalida " << std::endl;
+			return false;
 		}
 		else {
 			std::cout << "Data valida " << std::endl;
+			return true;
 		}
 	}
 	else {
 		if (dia > 30) {
 			std::cout << "Data invalida " << std::endl;
+			return false;
 		}
 		else {
 			std::cout << "Data valida " << std::endl;
+			return true;
 		}
 	}
 
@@ -75,4 +99,3 @@ void Data::avancarDia(int dia, int mes, int ano) {
 
 	std::cout << dia << "/" << mes << "/" << ano << std::endl;
 };
-
